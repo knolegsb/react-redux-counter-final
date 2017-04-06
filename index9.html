@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>React Number Counting</title>
+        <meta charset="utf-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class SimpleCounter extends React.Component {
+                constructor(props) {
+                super(props);
+                    this.state = {
+                        value: [],
+                        textvalue : "",
+                        test:""
+                    }
+                    this.handleAddTodoItem = this.handleAddTodoItem.bind(this)
+                    this.handleChange = this.handleChange.bind(this)
+            }
+
+            handleChange(e) {
+                this.setState({
+                textvalue:parseInt(e.target.value)
+                })
+            }
+
+            handleAddTodoItem() {
+                this.state.value.unshift(this.state.textvalue)
+                this.setState(
+                this.state
+                )
+                this.state
+                for(var i=0; i < this.state.value.length; i++){
+                    this.state.value[i]++
+                }
+                console.log(this.state.value)
+            }
+        
+            render() {
+                let { value } = this.state;
+                return (
+                <div>        
+                    <button className="addbutton" onClick={this.handleAddTodoItem}>Add</button>
+                    <input type="text" placeholder="Enter a number here" className="text" onChange={ this.handleChange } />
+                    {value.map((v) => {
+                        return <div><h1>{v}</h1></div>                    
+                    })}
+                </div>
+                )
+            }
+        }
+        class Container extends React.Component {
+            render() {
+                return (
+                <SimpleCounter /> 
+                )
+            }
+        }
+
+        ReactDOM.render(<SimpleCounter />, document.getElementById('app'));
+        </script>
+    </body>
+</html>
