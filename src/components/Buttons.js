@@ -41,8 +41,6 @@ class Buttons extends React.Component {
     }
 }
 
-
-
 let mapDispatchToProps = (dispatch) => {
     return {
         onIncrement: () => dispatch(increment()),
